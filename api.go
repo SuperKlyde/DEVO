@@ -1,17 +1,14 @@
 package main
 
 import (
-	"os"
-	//"syscall"
-	//"fmt"
+	//variables d'environnement
+	"os" 	
 	//micro framework routing
 	"github.com/gin-gonic/gin"
-	//package for the conversion from and to string
-	//"strconv"
 )
 
 
-var groupName = "Beryllium"
+
 
 func main(){
 	router := gin.Default()
@@ -19,8 +16,9 @@ func main(){
 	router.Run(":8080")
 }
 
+
+//renvoie le nom du groupe passé en variable d'environnement
 func getGroupName(c *gin.Context){
-	os.Setenv("DEVO_GROUPNAME", "Beryllium")
-	// syscall.Exec(os.Getenv("SHELL"), []string{os.Getenv("SHELL")}, syscall.Environ())
-	c.JSON(2000, groupName)
+	
+	c.JSON(2000, os.Getenv("DEVO_GROUPNAME"))
 }
