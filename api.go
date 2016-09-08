@@ -12,7 +12,7 @@ import (
 
 func main(){
 	router := gin.Default()
-	router.GET("/DEVO/GROUPNAME", getGroupName)
+	router.GET("/v1/groupname", getGroupName)
 	router.Run(":8080")
 }
 
