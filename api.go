@@ -1,6 +1,8 @@
 package main
 
 import (
+	//provides HTTP clientand server implementation
+	"net/http"
 	//variables d'environnement
 	"os" 	
 	//micro framework routing
@@ -19,6 +21,7 @@ func main(){
 
 //renvoie le nom du groupe passé en variable d'environnement
 func getGroupName(c *gin.Context){
-	
-	c.JSON(2000, os.Getenv("DEVO_GROUPNAME"))
+	os.Setenv("DEVO_GROUPNAME", "Beryllium")
+	content := "{ \n  \"status\" : \"Success\", \n  \"data\": {\n \t  \"groupname\":\"" + os.Getenv("DEVO_GROUPNAME") + "\"\n  } \n}"
+	c.String(http.StatusOK, content)
 }
