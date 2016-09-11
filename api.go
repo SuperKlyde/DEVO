@@ -23,5 +23,7 @@ func main(){
 func getGroupName(c *gin.Context){
 	os.Setenv("DEVO_GROUPNAME", "Beryllium")
 	content := "{ \n  \"status\" : \"Success\", \n  \"data\": {\n \t  \"groupname\":\"" + os.Getenv("DEVO_GROUPNAME") + "\"\n  } \n}"
+	// content2 := gin.H{"status" : "Success", "groupname" : os.Getenv("DEVO_GROUPNAME")}
 	c.String(http.StatusOK, content)
+	// c.JSON(2000, content2)
 }
